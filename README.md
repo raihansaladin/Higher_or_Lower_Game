@@ -1,1 +1,1 @@
-Projek latihan program permainan Blackjack menggunakan Python
+Projek latihan permainan Higher or Lower menggunakan Python
