@@ -3,8 +3,24 @@ from game_data import data
 
 print(art.logo)
 
+def modify_a():
+    """Memodifikasi/memindahkan data B ke data A"""
+    global rand_data_name, rand_data_desc, rand_data_country, rand_data_follower
+    rand_data_name = rand_data_name_B
+    rand_data_desc = rand_data_name_B
+    rand_data_country = rand_data_country_B
+    rand_data_follower = rand_data_follower_B
+
+def randomize_data_B():
+    global data_B
+    data_B = random.choice(data)
+
+    return (
+        data_B['name'], data_B['description'], data_B['country'], data_B['follower_count']
+    )
+
 def randomize_data():
-    # call the two random data to compare
+    # call data for B random data
     data_A = random.choice(data)
     data_B = random.choice(data)
 
@@ -33,8 +49,8 @@ while running:
         if rand_data_follower > rand_data_follower_B:
             score += 1
             print(f"You're' right! Current score : {score}")
-            (rand_data_name, rand_data_desc, rand_data_country, rand_data_follower,
-             rand_data_name_B, rand_data_desc_B, rand_data_country_B, rand_data_follower_B) = randomize_data()
+            modify_a()
+            (rand_data_name_B, rand_data_desc_B, rand_data_country_B, rand_data_follower_B) = randomize_data_B()
         else :
             print(f"Sorry, that's wrong. Final score: {score}")
             running = False
@@ -43,8 +59,8 @@ while running:
         if rand_data_follower_B > rand_data_follower:
             score += 1
             print(f"You're' right! Current score : {score}")
-            (rand_data_name, rand_data_desc, rand_data_country, rand_data_follower,
-             rand_data_name_B, rand_data_desc_B, rand_data_country_B, rand_data_follower_B) = randomize_data()
+            modify_a()
+            (rand_data_name_B, rand_data_desc_B, rand_data_country_B, rand_data_follower_B) = randomize_data_B()
         else :
             print(f"Sorry, that's wrong. Final score: {score}")
             running = False
