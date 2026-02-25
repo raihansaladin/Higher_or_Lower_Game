@@ -48,6 +48,8 @@ while running:
     if compare == "a":
         if rand_data_follower > rand_data_follower_B:
             score += 1
+            print("\n"*25)
+            print(art.logo)
             print(f"You're' right! Current score : {score}")
             modify_a()
             (rand_data_name_B, rand_data_desc_B, rand_data_country_B, rand_data_follower_B) = randomize_data_B()
@@ -58,6 +60,8 @@ while running:
     elif compare == "b":
         if rand_data_follower_B > rand_data_follower:
             score += 1
+            print("\n" * 25)
+            print(art.logo)
             print(f"You're' right! Current score : {score}")
             modify_a()
             (rand_data_name_B, rand_data_desc_B, rand_data_country_B, rand_data_follower_B) = randomize_data_B()
