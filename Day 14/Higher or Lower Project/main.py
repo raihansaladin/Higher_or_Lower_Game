@@ -2,7 +2,7 @@ import art, random
 from game_data import data
 
 print(art.logo)
-
+data_A = random.choice(data)
 def modify_a():
     """Memodifikasi/memindahkan data B ke data A"""
     global rand_data_name, rand_data_desc, rand_data_country, rand_data_follower
@@ -11,9 +11,15 @@ def modify_a():
     rand_data_country = rand_data_country_B
     rand_data_follower = rand_data_follower_B
 
+def check_possible_same_data(data_b):
+    global data_A
+    while data_A == data_b:
+        data_B = random.choice(data)
+
 def randomize_data_B():
-    global data_B
     data_B = random.choice(data)
+
+    check_possible_same_data(data_B)
 
     return (
         data_B['name'], data_B['description'], data_B['country'], data_B['follower_count']
@@ -21,11 +27,10 @@ def randomize_data_B():
 
 def randomize_data():
     # call data for B random data
-    data_A = random.choice(data)
+    # data_A = random.choice(data)
     data_B = random.choice(data)
 
-    while data_A == data_B:
-        data_B = random.choice(data)
+    check_possible_same_data(data_B)
 
     return (
         data_A['name'], data_A['description'], data_A['country'], data_A['follower_count'],
